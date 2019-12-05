@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>英雄抽奖</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		li{
+			list-style: none;
+			position: absolute;
+			transition: 0.15s;
+		}
+		.all{
+			width: 1065px;
+			/* height: 500px; */
+			margin: 50px auto;
+			background: rgba(15, 30, 49, 0.9);
+			border-radius: 15px;
+			overflow: hidden;/*实现ul的上外边距*/
+			position: relative;
+		}
+		ul{
+			width: 1005px;
+			height: 572px;
+			margin: 30px;
+			position: relative;
+			/* background: pink; */
+		}
+		li:nth-of-type(1){
+			top: 0px;
+			left: 0px;
+
+
+		}
+		li:nth-of-type(2){
+			top: 0px;
+			left: 203px;
+
+		}
+		li:nth-of-type(3){
+			top: 0px;
+			left: 406px;
+
+		}
+		li:nth-of-type(4){
+			top: 0px;
+			left: 609px;
+
+		}
+		li:nth-of-type(5){
+			top: 0px;
+			left: 812px;
+
+		}
+		li:nth-of-type(6){
+			top: 143px;
+			left: 812px;
+
+		}
+		li:nth-of-type(7){
+			top: 286px;
+			left: 812px;
+
+		}
+		li:nth-of-type(8){
+			top: 429px;
+			left: 812px;
+
+		}
+		li:nth-of-type(9){
+			top: 429px;
+			right: 203px;
+
+		}
+		li:nth-of-type(10){
+			top: 429px;
+			right: 406px;
+
+		}
+		li:nth-of-type(11){
+			top: 429px;
+			right: 609px;
+
+		}
+		li:nth-of-type(12){
+			top: 429px;
+			right: 812px;
+
+		}
+		li:nth-of-type(13){
+			top: 286px;
+			left: 0px;
+
+		}
+		li:nth-of-type(14){
+			
+			top: 143px;
+			left: 0px;
+
+		}
+
+		.btn{
+			position: absolute;
+			width: 500px;
+			height: 90px;
+			/* border: 1px solid #fbc03e; */
+			left: 50%;
+			margin-left: -250px;
+			top: 55%;
+			
+		}
+		.btn button{
+			float: left;
+			width: 240px;
+			height: 80px;
+			overflow: hidden;
+			margin: 5px;
+			border: none;
+			outline: none;
+
+		}
+		.fi{
+			background-image:url('image/zs1.png');
+		}
+		.se{
+			background-image:url('image/zs2.png');
+		}
+		.btn button:hover{
+			/* 内阴影 */
+			box-shadow: 0px 0px 10px 1px #333 inset;
+			/* opacity: 0.9; */
+		}
+		.tittle{
+			position: absolute;
+			width: 593px;
+			padding:35px 0px 120px;
+			border: 2px solid #fbc03e;
+			border-radius: 15px;
+			
+			/* background-color: rgba(16, 37, 58, 0.7); */
+			background-image: url('image/bg.jpg');
+			background-size: 100%;
+			left: 50%;
+			top: 27%;
+			margin-left: -296.5px;
+			text-align: center;
+		}
+		.tittle h1{
+			color: #ebb322;
+			font-size: 60px;
+			font-style: italic;
+		}
+		.tittle p{
+			color: #fff;
+			font-size: 30px;
+			font-weight: bold;
+			line-height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<ul id="tu">
+			<li><img src="image/01.jpg" alt=""></li>
+			<li><img src="image/02.jpg" alt=""></li>
+			<li><img src="image/03.jpg" alt=""></li>
+			<li><img src="image/04.jpg" alt=""></li>
+			<li><img src="image/05.jpg" alt=""></li>
+			<li><img src="image/06.jpg" alt=""></li>
+			<li><img src="image/07.jpg" alt=""></li>
+			<li><img src="image/08.jpg" alt=""></li>
+			<li><img src="image/09.jpg" alt=""></li>
+			<li><img src="image/10.jpg" alt=""></li>
+			<li><img src="image/11.jpg" alt=""></li>
+			<li><img src="image/12.jpg" alt=""></li>
+			<li><img src="image/13.jpg" alt=""></li>
+			<li><img src="image/14.jpg" alt=""></li>
+		</ul>
+		
+		<div class="tittle">
+			<h1>抽奖啦！</h1>
+			<p>稀有物品，你值得拥有</p>
+
+		</div>
+		<div class="btn">
+			<button id="fi" class="fi"></button>
+			<button id="se" class="se"></button>
+		</div>
+	</div>
+	<script>
+		var onum=0;
+		var otime=1000;
+		var tim;
+		function aa(){
+			clearTimeout(tim);
+			tim=setTimeout(function(){
+				clearInterval(timer);
+				var suij=parseInt(Math.random()*100);
+				if(suij<14){suij*=5};
+				var sum=0;
+				// alert(suij);
+				timer=setInterval(function(){
+					if(j==14){
+						j=0;
+					}
+					sum++;
+					for(var i=0;i<tup.length;i++){
+						tup[i].style.opacity=0.5;
+					}
+					tup[j].style.opacity=1;
+					j++;
+					if(sum==suij){
+						clearInterval(timer);
+					}
+
+
+				},100);
+
+				console.log(onum);
+				if(onum<4){
+					onum++;
+					otime=suij*100+1000;
+					aa();
+				}else{
+					onum=0;
+					otime=1000;
+				}
+				
+			},otime)
+				
+		}
+
+		var tup=tu.children;//children后面不用括号
+		var num=0;
+		var j=0;
+		var timer;
+
+		fi.onclick=function(){
+			
+			
+			clearInterval(timer);
+			var suij=parseInt(Math.random()*100);
+			if(suij<14){suij*=5};
+			var sum=0;
+			// alert(suij);
+			timer=setInterval(function(){
+				if(j==14){
+					j=0;
+				}
+				sum++;
+				for(var i=0;i<tup.length;i++){
+					tup[i].style.opacity=0.5;
+				}
+				tup[j].style.opacity=1;
+				j++;
+				if(sum==suij){
+					clearInterval(timer);
+				}
+			},100);
+
+			//一次
+			// setTimeout(function(){
+			// 	// if(j==13){
+			// 	// 	j=0;
+			// 	// }
+			// 	for(var i=0;i<tup.length;i++){
+			// 		tup[i].style.opacity=0.6;
+			// 	}
+			// 	tup[j].style.opacity=1;
+			// 	// j++;
+			// },500);
+				
+		}
+		
+		var timer1;
+		var timer2;
+		var timer3;
+		var tt=0;
+		var shijian=5000;
+		se.onclick=function(){
+			aa();
+			// alert("抱歉该功能还未完善！");
+			
+				// timer1=setInterval(function(){
+
+					
+				// 	var suij=parseInt(Math.random()*100);
+				// 	// if(suij<14){suij*=5};
+				// 	shijian=200+suij*100;
+				// 	var sum=0;
+				// 	// alert(suij);
+				// 	timer2=setInterval(function(){
+				// 		if(j==13){
+				// 			j=0;
+				// 		}
+				// 		sum++;
+				// 		for(var i=0;i<tup.length;i++){
+				// 			tup[i].style.opacity=0.5;
+				// 		}
+				// 		tup[j].style.opacity=1;
+				// 		j++;
+				// 		if(sum==suij){
+				// 			alert()
+				// 			clearInterval(timer2);
+				// 		}
+				// 	},100);
+				// 	tt++;
+				// 	if(tt>=5){
+				// 		clearInterval(timer1);
+				// 	}
+				// },shijian+2000);
+
+				
+			
+
+
+			// var shijian;
+
+			// timer3=setInterval(function(){
+			// 	timer1=setTimeout(function(){
+
+					
+			// 		var suij=parseInt(Math.random()*100);
+			// 		// if(suij<14){suij*=5};
+			// 		var sum=0;
+			// 		shijian=200+suij*100;
+			// 		// alert(suij);
+			// 		timer2=setInterval(function(){
+			// 			if(j==13){
+			// 				j=0;
+			// 			}
+			// 			sum++;
+			// 			for(var i=0;i<tup.length;i++){
+			// 				tup[i].style.opacity=0.5;
+			// 			}
+			// 			tup[j].style.opacity=1;
+			// 			j++;
+			// 			if(sum==suij){
+			// 				clearInterval(timer2);
+			// 			}
+			// 		},100);
+
+			// 		clearTimeout(timer1);
+			// 	},shijian)
+
+			// 	t++;
+			// 	if(tt==5){
+			// 		clearInterval(timer3);
+			// 	}
+			// },shijian)
+
+				
+
+
+
+
+
+
+
+
+			// // for(var k=0;k<5;k++){
+				
+				
+			// 	var suij=parseInt(Math.random()*100);
+			// 	timer1=setInterval(function(){
+			// 		if(j==13){
+			// 			j=0;
+			// 		}
+			// 		sum++;
+			// 		for(var i=0;i<tup.length;i++){
+			// 			tup[i].style.opacity=0.5;
+			// 		}
+			// 		tup[j].style.opacity=1;
+			// 		j++;
+			// 		if(sum==suij){
+			// 			clearInterval(timer1);
+			// 		}
+			// 	},100);
+	
+			// // }
+				
+
+		}
+
+
+		// function duoc(suij){
+		// 	// var suij=parseInt(Math.random()*100);
+		// 	setTimeout(function(){
+		// 		var sum=0;
+		// 		timer=setInterval(function(){
+		// 			if(j==13){
+		// 				j=0;
+		// 			}
+		// 			sum++;
+		// 			for(var i=0;i<tup.length;i++){
+		// 				tup[i].style.opacity=0.5;
+		// 			}
+		// 			tup[j].style.opacity=1;
+		// 			j++;
+		// 			if(sum==suij){
+		// 				clearInterval(timer);
+		// 			}
+		// 		},100);
+
+		// 	},5000)
+		// }
+
+
+			// clearInterval(timer);
+			// var no=0;
+			// //先创建五个随机数
+			// var suij=[parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100)];
+			// alert(suij);
+
+			// timer=setInterval(function(){
+
+			// 	timer1=setTimeout(function(){
+
+			// 		if(j==13){
+			// 				j=0;
+			// 			}
+			// 			sum++;
+			// 			for(var i=0;i<tup.length;i++){
+			// 				tup[i].style.opacity=0.5;
+			// 			}
+			// 			tup[j].style.opacity=1;
+			// 			j++;
+			// 			if(sum==suij){
+			// 				clearTimeout(timer1);
+			// 			}
+			// 	},100)
+			// 	no++;
+			// 	if(no==5){
+			// 		clearInterval(timer);
+			// 	}
+			// },10000)
+
+
+
+
+
+
+			// duoc(suij[0]);
+			// duoc(suij[1]);
+			// duoc(suij[2]);
+			// duoc(suij[3]);
+			// duoc(suij[4]);
+
+
+
+		
+	</script>
+</body>
+</html>
